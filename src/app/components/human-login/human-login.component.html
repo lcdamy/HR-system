@@ -1,0 +1,30 @@
+<!-- HR Login form -->
+<div>
+    <div class="d-flex justify-content-center">
+        <h3>Login to access the dashboard</h3>
+    </div>
+    <div class="row">
+        <div class="col-2 offset-5 pt-4 pb-4" style="border: 1px solid rgb(131, 130, 130);">
+            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label class="form-label">Email *</label>
+                    <input type="email" class="form-control" required #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched" name="email" [(ngModel)]="loginModel.email">
+                    <small class="text-danger" [class.d-none]="email.valid || email.untouched">Email is
+                        required</small>
+                </div>
+                <div class="mb-3">
+                    <label class="form-label">Password *</label>
+                    <input type="password" class="form-control" required #password="ngModel"
+                        [class.is-invalid]="password.invalid && password.touched" name="password"
+                        [(ngModel)]="loginModel.password">
+                    <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is
+                        required</small>
+                </div>
+                <button type="submit" class="btn btn-primary">Login</button>
+                <button class="btn btn-secondary" style="margin-left:4px" [routerLink]="''"><i class="fa fa-backward"
+                        aria-hidden="true"></i> Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>

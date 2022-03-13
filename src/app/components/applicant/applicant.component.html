@@ -1,0 +1,71 @@
+<!-- Applicant form -->
+<div>
+    <div class="d-flex justify-content-center">
+        <h3>Fill the form to Apply</h3>
+    </div>
+    <div class="row">
+        <div class="col-4 offset-4 pt-4 pb-4" style="border: 1px solid rgb(131, 130, 130);">
+            <form #applicantForm="ngForm" (ngSubmit)="onSubmit()">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Firstname *</label>
+                    <input type="text" class="form-control" required #firstname="ngModel"
+                        [class.is-invalid]="firstname.invalid && firstname.touched" name="firstname"
+                        [(ngModel)]="applicantModel.firstname">
+                    <small class="text-danger" [class.d-none]="firstname.valid || firstname.untouched">Firstname is
+                        required</small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Lastname *</label>
+                    <input type="text" class="form-control" required #lastname="ngModel"
+                        [class.is-invalid]="lastname.invalid && lastname.touched" name="lastname"
+                        [(ngModel)]="applicantModel.lastname">
+                    <small class="text-danger" [class.d-none]="lastname.valid || lastname.untouched">
+                        Lastname is required
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email *</label>
+                    <input type="email" class="form-control" required #email="ngModel"
+                        [class.is-invalid]="email.invalid && email.touched" name="email"
+                        [(ngModel)]="applicantModel.email">
+                    <small class="text-danger" [class.d-none]="email.valid || email.untouched">
+                        Email is required
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Date of Birthday *</label>
+                    <input type="date" class="form-control" required #dob="ngModel"
+                        [class.is-invalid]="dob.invalid && dob.touched" name="dob" [(ngModel)]="applicantModel.dob">
+                    <small class="text-danger" [class.d-none]="dob.valid || dob.untouched">
+                        Date of Birthday is required
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputGender" class="form-label">Gender *</label>
+                    <select class="form-select" aria-label="Gender" required #gender="ngModel"
+                        [class.is-invalid]="gender.invalid && gender.touched" name="gender"
+                        [(ngModel)]="applicantModel.gender">
+                        <option value="" selected>Gender</option>
+                        <option value="1">Female</option>
+                        <option value="2">Male</option>
+                    </select>
+                    <small class="text-danger" [class.d-none]="gender.valid || gender.untouched">
+                        Gender is required
+                    </small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleFormControlTextarea1" class="form-label">Bio</label>
+                    <textarea class="form-control" #bio="ngModel" name="bio" [(ngModel)]="applicantModel.bio"
+                        rows="3"></textarea>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleInputCV" class="form-label">CV *</label>
+                    <input type="file" class="form-control" [ngModel]="applicantModel.cv">
+                </div>
+                <button type="submit" class="btn btn-primary" [disabled]="applicantForm.form.invalid">Submit</button>
+                <button class="btn btn-secondary" style="margin-left:4px" [routerLink]="''"><i class="fa fa-backward"
+                        aria-hidden="true"></i> Cancel</button>
+            </form>
+        </div>
+    </div>
+</div>
