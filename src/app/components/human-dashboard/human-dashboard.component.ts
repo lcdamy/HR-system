@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { ApplicantService } from '../../services/applicant.service';
+
 @Component({
   selector: 'app-human-dashboard',
   templateUrl: './human-dashboard.component.html',
@@ -11,6 +12,7 @@ export class HumanDashboardComponent implements OnInit {
   constructor(private applicantService: ApplicantService, private router: Router) { }
 
   applications: any = [];
+  items = [];
 
   ngOnInit(): void {
     this.getApplications();
@@ -35,6 +37,11 @@ export class HumanDashboardComponent implements OnInit {
     } else {
       this.router.navigate(['/login']);
     }
+  }
+
+  onChangePage(applications: Array<any>) {
+    // update current page of items
+    this.applications = applications;
   }
 
 }

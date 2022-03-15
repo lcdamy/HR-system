@@ -1,4 +1,14 @@
-<div class="d-flex justify-content-center mb-4" style="border-bottom:1px solid grey;">
-    <h2 class="mb-4 pt-4">Welcome to the application system</h2>
-</div>
+<nav class="navbar navbar-light bg-light" style="margin-bottom: 32px;">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="">
+            <img src="../../../assets/logo/logo.png" alt="" width="40" height="40"
+                class="d-inline-block align-text-middle">
+            Welcome to the application system
+        </a>
+        <div class="d-flex">
+            <button *ngIf="logoutbtn" class="btn btn-outline-danger" type="button" (click)="logout()">logout</button>
+        </div>
+    </div>
+</nav>
+
 <router-outlet></router-outlet>

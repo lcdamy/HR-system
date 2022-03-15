@@ -13,9 +13,8 @@ export class ApplicantService {
   _url = "http://localhost:3000/applicant";
 
 
-
   sendApplication(applicant: Applicant) {
-    return this._http.post<any>(this._url + "/create", applicant);
+    return this._http.post<any>(this._url + "/apply", applicant);
   }
 
   getAllApplication(token: string): Observable<Applicant[]> {

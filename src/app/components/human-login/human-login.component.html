@@ -5,7 +5,7 @@
     </div>
     <div class="row">
         <div class="col-2 offset-5 pt-4 pb-4" style="border: 1px solid rgb(131, 130, 130);">
-            <form #loginForm="ngForm" (ngSubmit)="onSubmit()">
+            <form #loginForm="ngForm" (ngSubmit)="userLogin()">
                 <div class="mb-3">
                     <label class="form-label">Email *</label>
                     <input type="email" class="form-control" required #email="ngModel"
@@ -25,7 +25,7 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <button class="btn btn-secondary" style="margin-left:4px" [routerLink]="''"><i class="fa fa-backward"
-                        aria-hidden="true"></i> Cancel</button>
+                        aria-hidden="true"></i> Go back</button>
             </form>
         </div>
     </div>

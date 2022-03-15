@@ -16,21 +16,32 @@ export class HumanLoginComponent implements OnInit {
   public custom_error_message = "";
   public error_login = false;
 
-
   ngOnInit(): void {
 
   }
 
-  onSubmit() {
-    this.userService.login(this.loginModel)
+  userLogin() {
+    this.userService.userLogin(this.loginModel)
       .subscribe(
-        result => {
-          localStorage.setItem('jwt', result.jwt);
-          this.router.navigate(['/dashboard']);
-        }, error => {
+        (value) => {
+          if (value) {
+            this.router.navigate(["/dashboard"]);
+          } else {
+            this.custom_error_message = "Opps! we can't login you";
+            this.error_login = true;
+            setTimeout(() => {
+              this.error_login = false;
+            }, 3000);
+          }
+        },
+        (error) => {
           this.custom_error_message = error.error.message;
           this.error_login = true;
-        })
+          setTimeout(() => {
+            this.error_login = false;
+          }, 3000);
+        }
+      );
   }
 
 

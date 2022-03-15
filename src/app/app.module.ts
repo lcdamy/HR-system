@@ -14,6 +14,9 @@ import { ApplicantComponent } from './components/applicant/applicant.component';
 import { HumanDashboardComponent } from './components/human-dashboard/human-dashboard.component';
 import { HumanApplicantComponent } from './components/human-applicant/human-applicant.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
+import { UserService } from './services/user.service';
+import { AuthGuard } from './guards/auth.guard';
+import { JwPaginationModule } from 'jw-angular-pagination';
 
 
 
@@ -39,9 +42,10 @@ import { NotFoundComponent } from './components/not-found/not-found.component';
     ]),
     FormsModule,
     HttpClientModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    JwPaginationModule
   ],
-  providers: [],
+  providers: [UserService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

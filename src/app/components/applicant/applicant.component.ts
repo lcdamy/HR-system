@@ -46,6 +46,9 @@ export class ApplicantComponent implements OnInit {
       }, error => {
         this.custom_error_message = error.error.message;
         this.error_application = true;
+        setTimeout(() => {
+          this.error_application = false;
+        }, 3000);
       })
   }
 

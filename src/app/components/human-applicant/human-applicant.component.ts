@@ -39,7 +39,7 @@ export class HumanApplicantComponent implements OnInit {
   reject() {
     const token = localStorage.getItem('jwt');
     if (token) {
-      this.applicantService.updateApplicationStatus(token, this.applicationId, 'rejected').subscribe(
+      this.applicantService.updateApplicationStatus(token, this.applicationId, 'dropped').subscribe(
         result => {
           this.application = result;
           console.log(this.application);
@@ -55,7 +55,7 @@ export class HumanApplicantComponent implements OnInit {
   aprove() {
     const token = localStorage.getItem('jwt');
     if (token) {
-      this.applicantService.updateApplicationStatus(token, this.applicationId, 'aproved').subscribe(
+      this.applicantService.updateApplicationStatus(token, this.applicationId, 'passed').subscribe(
         result => {
           this.application = result;
           console.log(this.application);

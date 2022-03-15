@@ -23,10 +23,10 @@
                             Download CV
                         </a>
                         <div class="d-flex justify-content-end">
-                            <button [disabled]="application.status=='rejected'" class="btn btn-danger"
-                                style="margin-right: 4px;" (click)="reject()"> Reject</button>
-                            <button [disabled]="application.status=='aproved'" class="btn btn-success"
-                                (click)="aprove()"> Aprove</button>
+                            <button [disabled]="application.status=='passed'" class="btn btn-danger"
+                                style="margin-right: 4px;" (click)="reject()"> Drop</button>
+                            <button [disabled]="application.status=='dropped'" class="btn btn-success"
+                                (click)="aprove()"> Pass</button>
                         </div>
 
                     </div>
