@@ -21,6 +21,8 @@
                     <small class="text-danger" [class.d-none]="password.valid || password.untouched">Password is
                         required</small>
                 </div>
+                <div *ngIf="error_login && loginForm.submitted" class='alert alert-danger'>{{custom_error_message}}
+                </div>
                 <button type="submit" class="btn btn-primary">Login</button>
                 <button class="btn btn-secondary" style="margin-left:4px" [routerLink]="''"><i class="fa fa-backward"
                         aria-hidden="true"></i> Cancel</button>

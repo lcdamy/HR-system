@@ -7,5 +7,8 @@ export class Applicant {
         public gender: string,
         public dob: string,
         public cv: string,
+        public status: string,
+        public file: any,
+
     ) { }
 }

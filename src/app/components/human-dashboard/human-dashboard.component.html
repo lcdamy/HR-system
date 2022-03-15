@@ -7,22 +7,37 @@
             <table class="table">
                 <thead>
                     <tr>
-                        <th scope="col">#</th>
+                        <th scope="col">#Id</th>
                         <th scope="col">Firstname</th>
                         <th scope="col">Lastname</th>
                         <th scope="col">Email</th>
+                        <th scope="col">Gender</th>
+                        <th scope="col">Age</th>
                         <th scope="col">Status</th>
                         <th scope="col">View</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr *ngFor="let application of applications">
-                        <th scope="row">1</th>
-                        <td>Mark</td>
-                        <td>Otto</td>
-                        <td>@mdo</td>
-                        <td><i class="fa fa-check-circle" aria-hidden="true"></i> Approved</td>
-                        <td><button class="btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button></td>
+                        <th scope="row">#{{application.id}}</th>
+                        <td>{{application.firstname}}</td>
+                        <td>{{application.lastname}}</td>
+                        <td>{{application.email}}</td>
+                        <td>
+                            <span *ngIf="application.gender==2">Male</span>
+                            <span *ngIf="application.gender!=2">Female</span>
+                        </td>
+                        <td>{{application.age}}</td>
+                        <td>
+                            <button type="button" class="btn btn-sm"
+                                [ngClass]="{'btn-success': application.status=='aproved' , 'btn-danger' : application.status=='rejected' , 'btn-secondary' : application.status=='pending'}">
+                                {{application.status}}
+                            </button>
+                        </td>
+                        <td><a routerLink="/application/{{application.id}}">
+                                <button class="btn-primary"><i class="fa fa-eye" aria-hidden="true"></i></button>
+                            </a>
+                        </td>
                     </tr>
 
 

@@ -59,8 +59,15 @@
                         rows="3"></textarea>
                 </div>
                 <div class="mb-3">
-                    <label for="exampleInputCV" class="form-label">CV *</label>
-                    <input type="file" class="form-control" [ngModel]="applicantModel.cv">
+                    <label for="exampleInputCV" class="form-label">CV (PDF)*</label>
+                    <input type="file" class="form-control" [ngModel]="applicantModel.cv"
+                        (change)="onFileSelect($event)" name="cv" accept="application/pdf">
+                </div>
+                <div *ngIf="error_application && applicantForm.submitted" class='alert alert-danger'>
+                    {{custom_error_message}}
+                </div>
+                <div *ngIf="success_application && applicantForm.submitted" class='alert alert-success'>
+                    {{custom_success_message}}
                 </div>
                 <button type="submit" class="btn btn-primary" [disabled]="applicantForm.form.invalid">Submit</button>
                 <button class="btn btn-secondary" style="margin-left:4px" [routerLink]="''"><i class="fa fa-backward"

@@ -9,7 +9,7 @@ export class UserService {
 
   constructor(private _http: HttpClient) { }
 
-  _url = "login";
+  _url = "http://localhost:3000/auth/login";
 
   login(human: Human) {
     return this._http.post<any>(this._url, human);
