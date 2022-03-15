@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { UserService } from '../../services/user.service';
 
 @Component({
   selector: 'app-landing',
@@ -7,17 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LandingComponent implements OnInit {
 
-  constructor() { }
-
+  constructor(private userService: UserService) { }
+  loggedin: boolean = false;
   ngOnInit(): void {
+    this.userService.userInfo.subscribe(value => {
+      if (value) {
+        this.loggedin = true;
+      }
+    })
   }
 
-  goToApplicant() {
-    console.log("go to ap");
-  }
 
-  goToHumanLogin() {
-    console.log("log")
-  }
 
 }

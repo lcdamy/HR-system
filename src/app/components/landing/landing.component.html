@@ -12,7 +12,10 @@
         <a routerLink="/apply" class="p-2">
             <button type="button" class="btn btn-primary"> APPLICATION PAGE</button>
         </a>
-        <a routerLink="/login" class="p-2">
+        <a *ngIf="!loggedin" routerLink="/login" class="p-2">
+            <button type="button" class="btn btn-success"> HUMAN RESSOURCE</button>
+        </a>
+        <a *ngIf="loggedin" routerLink="/dashboard" class="p-2">
             <button type="button" class="btn btn-success"> HUMAN RESSOURCE</button>
         </a>
     </div>

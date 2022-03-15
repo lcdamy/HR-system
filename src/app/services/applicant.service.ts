@@ -10,7 +10,7 @@ export class ApplicantService {
   constructor(private _http: HttpClient) { }
 
   httpOptions = {};
-  _url = "http://localhost:3000/applicant";
+  _url = "https://lc-job-application-backend.herokuapp.com/applicant";
 
 
   sendApplication(applicant: Applicant) {

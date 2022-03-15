@@ -30,7 +30,7 @@
                         <td>{{application.age}}</td>
                         <td>
                             <button type="button" class="btn btn-sm"
-                                [ngClass]="{'btn-success': application.status=='aproved' , 'btn-danger' : application.status=='rejected' , 'btn-secondary' : application.status=='pending'}">
+                                [ngClass]="{'btn-success': application.status=='passed' , 'btn-danger' : application.status=='dropped' , 'btn-secondary' : application.status=='pending'}">
                                 {{application.status}}
                             </button>
                         </td>

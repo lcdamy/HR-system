@@ -17,7 +17,7 @@ export class UserService {
     this.loadUserInfo();
   }
 
-  _url = "http://localhost:3000/auth/login";
+  _url = "https://lc-job-application-backend.herokuapp.com/auth/login";
 
   userLogin(login: Human): Observable<boolean> {
     if (login && login.email && login.password) {
